@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<title>USA STATES MAP</title>
+	<link rel="stylesheet" href="fontawesome/css/all.css">
+	<link rel="stylesheet" href="fontawesome/css/v4-shims.css">
+	<link rel="stylesheet" type="text/css" href="styles/index.css">
+</head>
+
+<body>
+
+	<header>
+		<nav class="navbar">
+			<div class="navbar-search">
+				<input list="all_states" class="search-state" placeholder="Search state">
+				<datalist id="all_states"></datalist>
+			</div>
+		</nav>
+	</header>
+
+	<div class="main-page">
+
+		<div class="main-page-left">
+			<div class="tabs" id="my-tabs">
+				<div class="tab active" data-target="tab1">All</div>
+				<div class="tab" data-target="tab2">Fav</div>
+			</div>
+			<div class="tabs-body" id="my-tabs-body">
+				<div id="tab1" class="tab-content active-tab">
+
+				</div>
+				<div id="tab2" class="tab-content"></div>
+			</div>
+		</div>
+
+		<div class="main-page-right">
+
+			<div class="tabs" id="my-tabs_right">
+				<div class="tab active" data-target="tab_image">Image</div>
+				<div class="tab" data-target="tab_svg">SVG</div>
+			</div>
+			<div class="tabs-body" id="my-tabs-body_right">
+				<div id="tab_image" class="tab-content active-tab">
+					<img src="assets/map2.jpg" usemap="#image-map">
+				</div>
+				<div id="tab_svg" class="tab-content">
+					<div id="map"></div>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+	<script src="simplemapsdata/mapdata.js"> </script>
+	<script src="simplemapsdata/usmap.js"> </script>
+
+	<script src="js/StatesCookie.js"> </script>
+	<script src="js/states.js"> </script>
+	<script src="js/index.js"> </script>
+</body>
+
+</html>

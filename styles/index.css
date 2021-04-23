@@ -1,0 +1,263 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: 'Lato', sans-serif;
+	transition: all 0.2s ease;
+}
+
+:root {
+	/*--theme-color: #05668d;*/
+	--theme-color: #02044a;
+	--theme-hover-color: #051c8d;
+	--nav-size: 60px;
+
+	--primary-color: #1da1f2;
+	--primary-color-darker: #1323ff;
+	--primary-bg-accent: #1da0f21a;
+
+	--primary-border-color: #eeeeee;
+
+	--failed-color: #ff0000;
+	--failed-bg: rgba(255, 0, 0, 0.205);
+
+	--pending-color: #bbac00fa;
+	--pending-bg: rgb(214 255 0 / 20%);
+
+	--sent-color: #008000;
+	--sent-bg: rgba(0, 128, 0, 0.205);
+}
+
+.fav-o {
+	color: var(--failed-color);
+}
+
+.fav {
+	color: var(--sent-color);
+}
+
+.play {
+	color: var(--pending-color);
+}
+
+.navbar {
+	width: 100%;
+	height: var(--nav-size);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	background: var(--theme-color);
+}
+
+.navbar-search {
+	width: 40%
+}
+
+.search-state {
+	width: 100%;
+	padding: 8px 25px;
+	font-size: 18px;
+	outline: var(--theme-color) 50%;
+	border-radius: 50px;
+	border: none;
+}
+
+.main-page {
+	margin-top: var(--nav-size);
+	display: flex;
+	flex: 1 1;
+	padding: 0 50px;
+	min-height: calc(100vh - var(--nav-size))
+}
+
+.main-page-left {
+	flex: 0.25;
+	border-left: 1px solid var(--primary-border-color);
+	border-right: 1px solid var(--primary-border-color);
+}
+
+.main-page-right {
+	flex: 0.75;
+	width: 75%;
+	max-width: 75%;
+	position: relative;
+	overflow-x: hidden;
+}
+
+.main-page-right img {
+	width: 100%;
+}
+
+.tabs {
+	height: var(--nav-size);
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	border-bottom: 1px solid var(--primary-border-color);
+}
+
+.tab {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-weight: 700;
+	cursor: pointer;
+	transition: all 0.2s linear;
+}
+
+.tab:hover {
+	/*filter: brightness(1.5);*/
+	background: #02044a10;
+	/*color: white;*/
+}
+
+.tab.active {
+	/*background: var(--theme-color);*/
+	border-bottom: 4px solid var(--theme-color);
+	/*color: white;*/
+}
+
+.tabs-body {
+	height: calc(100% - var(--nav-size));
+	position: relative;
+}
+
+.tab-content {
+	height: 100%;
+	transition: all 0.5s linear;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	transform: scale(0.9);
+	animation: zoomout 0.5s linear;
+	border-radius: 10px;
+	background: white;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+.tab-content.active-tab {
+	transform: scale(1);
+	z-index: 2;
+	animation: zoomin 0.5s linear;
+}
+
+@keyframes zoomin {
+	0% {
+		transform: scale(0.9);
+	}
+
+	/*50% {
+        transform: scale(1.2,1.2);
+    }*/
+	100% {
+		transform: scale(1);
+	}
+}
+
+@keyframes zoomout {
+	0% {
+		transform: scale(1);
+	}
+
+	/*50% {
+        transform: scale(1.2,1.2);
+    }*/
+	100% {
+		transform: scale(0.8);
+	}
+}
+
+/*#tab1{
+	background: blue;
+}
+#tab2{
+	background: red;
+}
+#tab3{
+	background: green;
+}*/
+
+.single-state {
+	width: 100%;
+	padding: 4px 4px 4px 0;
+	border-bottom: 1px solid var(--primary-border-color);
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	transition: all 0.2s linear;
+}
+
+.single-state:hover {
+	background: #eeeeee70;
+}
+
+.single-state-avatar {
+	display: flex;
+	text-transform: uppercase;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	font-weight: 600;
+	font-size: 18px;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	background: #eeeeee;
+	margin: 0 6px 0 2px;
+}
+
+.single-state-details {
+	width: calc(100% - 126px);
+	overflow: hidden;
+}
+
+.single-state-details h3 {
+	font-size: 16px;
+	color: #00000090;
+	font-weight: 500;
+}
+
+.single-state-details h2 {
+	font-size: 18px;
+}
+
+.single-state-details h4 {
+	font-size: 16px;
+	color: #00000070;
+	font-weight: 500;
+}
+
+.single-state-details p {
+	font-size: 12px;
+	opacity: 0.8;
+}
+
+.single-state-fav,
+.single-state-read {
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	/*background: #eeeeee;*/
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0 2px;
+	color: black !important;
+	font-size: 20px;
+}
+
+#map {
+	width: 100%;
+}
